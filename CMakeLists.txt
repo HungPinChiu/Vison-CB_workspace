@@ -10,6 +10,7 @@ project(yolo)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
+  tf
   std_msgs
   message_generation
 )
@@ -48,10 +49,10 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 # Generate messages in the 'msg' folder
-  add_message_files(
-   FILES
-   yolomsg.msg
-  )
+# add_message_files(
+#  FILES
+#  yolomsg.msg
+# )
 
 ## Generate services in the 'srv' folder
   add_service_files(
@@ -190,6 +191,9 @@ include_directories(
 #   # myfile2
 #   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 # )
+
+add_executable(tf_broadcaster src/tf_broadcaster.cpp)
+target_link_libraries(tf_broadcaster ${catkin_LIBRARIES})
 
 #############
 ## Testing ##
