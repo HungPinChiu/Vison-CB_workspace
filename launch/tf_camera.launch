@@ -1,7 +1,0 @@
-<launch>
-    <node pkg="tf_prac" type="tf_broadcaster" name="tf_broadcaster"
-        args="1.2 1.6 1.5 -125 0 165 map realsense_camera 10"/>
-
-    <!--rviz -->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find tf_prac)/rviz/tf_camera.rviz" />
-</launch>
